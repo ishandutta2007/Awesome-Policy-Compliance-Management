@@ -1,0 +1,243 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0f1d" />
+      <stop offset="50%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+
+    <linearGradient id="primaryTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="45%" stop-color="#818cf8" />
+      <stop offset="100%" stop-color="#c084fc" />
+    </linearGradient>
+
+    <linearGradient id="accentGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.4" />
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0.1" />
+    </linearGradient>
+
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.6" />
+      <stop offset="50%" stop-color="#818cf8" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#c084fc" stop-opacity="0.7" />
+    </linearGradient>
+
+    <radialGradient id="ambientOrb" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3" />
+      <stop offset="70%" stop-color="#6366f1" stop-opacity="0.08" />
+      <stop offset="100%" stop-color="#0f172a" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Grid Pattern -->
+    <pattern id="cyberGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.7" stroke-opacity="0.6" />
+      <circle cx="40" cy="40" r="1" fill="#38bdf8" fill-opacity="0.3" />
+    </pattern>
+
+    <!-- CSS Animation Styles -->
+    <style>
+      @keyframes ambientPulse {
+        0%, 100% { transform: scale(1) translate(0, 0); opacity: 0.4; }
+        50% { transform: scale(1.15) translate(20px, -15px); opacity: 0.75; }
+      }
+      @keyframes floatSoft1 {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-7px); }
+      }
+      @keyframes floatSoft2 {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(7px); }
+      }
+      @keyframes radarSweep {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes laserScan {
+        0% { transform: translateX(-1200px); opacity: 0; }
+        20% { opacity: 0.7; }
+        80% { opacity: 0.7; }
+        100% { transform: translateX(1200px); opacity: 0; }
+      }
+      @keyframes dashFlow {
+        to { stroke-dashoffset: -40; }
+      }
+      .bg-orb {
+        animation: ambientPulse 8s ease-in-out infinite;
+        transform-origin: 300px 180px;
+      }
+      .float-pill-1 {
+        animation: floatSoft1 5s ease-in-out infinite;
+      }
+      .float-pill-2 {
+        animation: floatSoft2 6s ease-in-out infinite;
+      }
+      .rotating-ring {
+        animation: radarSweep 20s linear infinite;
+        transform-origin: 1040px 175px;
+      }
+      .rotating-ring-reverse {
+        animation: radarSweep 14s linear infinite reverse;
+        transform-origin: 1040px 175px;
+      }
+      .scan-line {
+        animation: laserScan 7s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+      .dash-circle {
+        stroke-dasharray: 6 6;
+        animation: dashFlow 4s linear infinite;
+      }
+      .main-title {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.8px;
+      }
+      .sub-title {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.2px;
+      }
+      .badge-text {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.6px;
+        text-transform: uppercase;
+      }
+    </style>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="1200" height="360" rx="16" fill="url(#bgGradient)" />
+  <rect width="1200" height="360" rx="16" fill="url(#cyberGrid)" />
+
+  <!-- Ambient Dynamic Glow Orbs in Background -->
+  <circle class="bg-orb" cx="300" cy="180" r="240" fill="url(#ambientOrb)" />
+  <circle class="bg-orb" cx="950" cy="160" r="200" fill="url(#ambientOrb)" style="animation-delay: -3s;" />
+
+  <!-- Dynamic Laser Scan line (in background layer) -->
+  <g class="scan-line">
+    <rect x="0" y="2" width="280" height="356" fill="url(#accentGlow)" opacity="0.35" />
+    <line x1="280" y1="2" x2="280" y2="358" stroke="#38bdf8" stroke-width="1.5" opacity="0.8" />
+  </g>
+
+  <!-- Border Frame -->
+  <rect x="1.5" y="1.5" width="1197" height="357" rx="15" fill="none" stroke="url(#borderGrad)" stroke-width="1.5" />
+
+  <!-- RIGHT SIDE: Modern Compliance Shield & Telemetry Rings Graphic -->
+  <g id="telemetry-rings">
+    <!-- Outer Orbit Ring -->
+    <circle cx="1040" cy="175" r="115" fill="none" stroke="#334155" stroke-width="1" stroke-opacity="0.4" />
+    <circle class="rotating-ring dash-circle" cx="1040" cy="175" r="115" fill="none" stroke="#38bdf8" stroke-width="1.5" stroke-opacity="0.6" />
+
+    <!-- Mid Orbit Ring with Nodes -->
+    <circle class="rotating-ring-reverse" cx="1040" cy="175" r="85" fill="none" stroke="#818cf8" stroke-width="1" stroke-opacity="0.5" stroke-dasharray="8 12" />
+
+    <!-- Inner Glow Disc -->
+    <circle cx="1040" cy="175" r="55" fill="#0f172a" stroke="#1e293b" stroke-width="2" />
+    <circle cx="1040" cy="175" r="48" fill="url(#accentGlow)" />
+
+    <!-- Center Security Shield Icon -->
+    <g transform="translate(1016, 151)">
+      <!-- Shield Path -->
+      <path d="M24 2 L42 8 C42 26 34 38 24 44 C14 38 6 26 6 8 Z" fill="#0f172a" stroke="#38bdf8" stroke-width="2.5" stroke-linejoin="round" />
+      <path d="M24 6 L38 11 C38 24 31 34 24 39 C17 34 10 24 10 11 Z" fill="#1e293b" opacity="0.7" />
+      <!-- Checkmark -->
+      <path d="M17 22 L22 27 L31 16" fill="none" stroke="#10b981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- Mini Indicator Dots around orbit -->
+    <circle cx="1040" cy="60" r="4" fill="#38bdf8">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="1155" cy="175" r="4" fill="#10b981">
+      <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="1040" cy="290" r="4" fill="#c084fc">
+      <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite" />
+    </circle>
+    <circle cx="925" cy="175" r="4" fill="#f59e0b">
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="3.5s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
+  <!-- FOREGROUND CONTENT: High Contrast, Crisp Typography & Floating Pills -->
+  <g transform="translate(60, 48)">
+
+    <!-- Top Status Badge Pill -->
+    <g class="float-pill-1">
+      <rect x="0" y="0" width="275" height="28" rx="14" fill="#1e293b" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.8" />
+      <circle cx="14" cy="14" r="5" fill="#10b981">
+        <animate attributeName="r" values="4;5.5;4" dur="2s" repeatCount="indefinite" />
+      </circle>
+      <text x="28" y="18" fill="#e2e8f0" class="badge-text">Continuous GRC &amp; Audit Ready</text>
+    </g>
+
+    <!-- Main Repository Title -->
+    <text x="0" y="80" class="main-title" font-size="38" fill="url(#primaryTextGrad)">
+      Awesome Policy &amp; Compliance Management
+    </text>
+
+    <!-- Subtitle -->
+    <text x="0" y="116" class="sub-title" font-size="17" fill="#94a3b8">
+      Curated Ecosystem of SaaS Platforms, Open-Source Tools &amp; Continuous Attestation Engines
+    </text>
+
+    <!-- Divider Line -->
+    <line x1="0" y1="142" x2="720" y2="142" stroke="#334155" stroke-width="1.2" stroke-dasharray="4 4" />
+
+    <!-- Floating Framework Cards / Chips Row -->
+    <g transform="translate(0, 162)">
+      <!-- SOC 2 Pill -->
+      <g class="float-pill-1">
+        <rect x="0" y="0" width="88" height="30" rx="8" fill="#111827" stroke="#3b82f6" stroke-width="1.2" />
+        <text x="44" y="19" text-anchor="middle" fill="#60a5fa" class="badge-text">SOC 2</text>
+      </g>
+
+      <!-- ISO 27001 Pill -->
+      <g class="float-pill-2" transform="translate(98, 0)">
+        <rect x="0" y="0" width="102" height="30" rx="8" fill="#111827" stroke="#10b981" stroke-width="1.2" />
+        <text x="51" y="19" text-anchor="middle" fill="#34d399" class="badge-text">ISO 27001</text>
+      </g>
+
+      <!-- HIPAA Pill -->
+      <g class="float-pill-1" transform="translate(210, 0)">
+        <rect x="0" y="0" width="82" height="30" rx="8" fill="#111827" stroke="#8b5cf6" stroke-width="1.2" />
+        <text x="41" y="19" text-anchor="middle" fill="#a78bfa" class="badge-text">HIPAA</text>
+      </g>
+
+      <!-- GDPR Pill -->
+      <g class="float-pill-2" transform="translate(302, 0)">
+        <rect x="0" y="0" width="80" height="30" rx="8" fill="#111827" stroke="#06b6d4" stroke-width="1.2" />
+        <text x="40" y="19" text-anchor="middle" fill="#22d3ee" class="badge-text">GDPR</text>
+      </g>
+
+      <!-- NIST / FedRAMP Pill -->
+      <g class="float-pill-1" transform="translate(392, 0)">
+        <rect x="0" y="0" width="138" height="30" rx="8" fill="#111827" stroke="#f59e0b" stroke-width="1.2" />
+        <text x="69" y="19" text-anchor="middle" fill="#fbbf24" class="badge-text">NIST • FedRAMP</text>
+      </g>
+
+      <!-- NIS2 / DORA Pill -->
+      <g class="float-pill-2" transform="translate(540, 0)">
+        <rect x="0" y="0" width="128" height="30" rx="8" fill="#111827" stroke="#ec4899" stroke-width="1.2" />
+        <text x="64" y="19" text-anchor="middle" fill="#f472b6" class="badge-text">NIS2 • DORA</text>
+      </g>
+    </g>
+
+    <!-- Bottom Feature Highlights -->
+    <g transform="translate(0, 222)">
+      <text x="0" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="13" fill="#cbd5e1">
+        <tspan fill="#38bdf8" font-weight="700">✦</tspan> Policy As Code   
+        <tspan fill="#334155" dx="8">|</tspan>   
+        <tspan fill="#34d399" font-weight="700" dx="8">✦</tspan> Automated Evidence Collection   
+        <tspan fill="#334155" dx="8">|</tspan>   
+        <tspan fill="#a78bfa" font-weight="700" dx="8">✦</tspan> Audit Readiness   
+        <tspan fill="#334155" dx="8">|</tspan>   
+        <tspan fill="#fbbf24" font-weight="700" dx="8">✦</tspan> Self-Hosted Open Source GRC
+      </text>
+    </g>
+
+  </g>
+</svg>
